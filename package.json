@@ -1,0 +1,37 @@
+{
+  "name": "bank-kata-tps",
+  "version": "1.0.0",
+  "description": "Bank Kata solution with Typescript and Jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cuvaalex/bank-kata-tps.git"
+  },
+  "author": "Alexandre Cuva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cuvaalex/bank-kata-tps/issues"
+  },
+  "homepage": "https://github.com/cuvaalex/bank-kata-tps#readme",
+  "devDependencies": {
+    "@types/jest": "^20.0.2",
+    "jest": "^20.0.4",
+    "ts-jest": "^20.0.6"
+  },
+
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json"
+    ]
+  }
+}
