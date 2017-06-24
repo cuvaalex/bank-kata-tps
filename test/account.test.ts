@@ -1,7 +1,7 @@
-import {Account, IConsole} from "./account";
-import {ITransactionRepository} from "./transactionRepository";
-import {ITransaction} from "./transaction";
-import {IStatementPrinter} from "./statementPrinter";
+import {Account} from "../src/app/account";
+import {ITransactionRepository} from "../src/app/transactionRepository";
+import {ITransaction} from "../src/app/transaction";
+import {IStatementPrinter} from "../src/app/statementPrinter";
 
 /**
  * Created by alex on 6/21/17.
