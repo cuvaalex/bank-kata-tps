@@ -4,10 +4,6 @@ import {IStatementPrinter} from "./statementPrinter";
  * Created by alex on 6/21/17.
  */
 
-export interface IConsole {
-    print: (text: string) => void;
-}
-
 export class Account {
     private transactionsRepository: ITransactionRepository;
     private statementPrinter: IStatementPrinter;
