@@ -24,7 +24,7 @@ beforeEach(() => {
 
 describe("print the statement", () => {
     test("should always print the header", () => {
-        const transactions = new Array<ITransaction>();
+        const transactions = [];
         const printer = new StatementPrinter(console);
 
         printer.print(transactions)
@@ -44,8 +44,8 @@ describe("print the statement", () => {
 
         expect(console.print).toBeCalledWith("date || credit || debit || balance");
         expect(console.print).toBeCalledWith("14/01/2012 ||  || 500 || 2500");
-        expect(console.print).toBeCalledWith("13/01/2012 || 2000  ||  || 3000");
-        expect(console.print).toBeCalledWith("10/01/2012 || 1000  ||  || 1000");
+        expect(console.print).toBeCalledWith("13/01/2012 || 2000 ||  || 3000");
+        expect(console.print).toBeCalledWith("10/01/2012 || 1000 ||  || 1000");
 
 
     });

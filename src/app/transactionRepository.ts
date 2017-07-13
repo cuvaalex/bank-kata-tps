@@ -19,10 +19,10 @@ export class TransactionRepository implements ITransactionRepository {
     }
 
     public depositTransaction(amount: number) {
-        this.transactions.push(new Transaction(this.clock.TODAY, amount));
+        this.transactions.push(new Transaction(this.clock.todayToString(), amount));
     };
     public withdrawTransaction(amount: number) {
-        this.transactions.push(new Transaction(this.clock.TODAY, -amount));
+        this.transactions.push(new Transaction(this.clock.todayToString(), -amount));
     };
     public allTransactions(): ITransaction[] {
         return this.transactions;

@@ -9,35 +9,34 @@ export interface IStatementPrinter {
 }
 
 export class StatementPrinter implements IStatementPrinter {
-    protected _console: IConsole;
 
+    protected _console: IConsole;
+    private readonly HEADER: string = "date || credit || debit || balance";
+    private _totalAmount: number;
 
     constructor(console: IConsole) {
         this._console = console;
     }
 
-    //TODO: find a way to make it work with transactions.map()
-    public print(transactions: Array<ITransaction>) {
-        this._console.print("date || credit || debit || balance");
-        let totalAmount: number = 0;
-        let listOfLines = [];
-        for (let transaction of transactions){
-            let textLine: string = transaction.date + " || ";
-            if(transaction.amount < 0) {
-                textLine += " || ";
-                textLine += -transaction.amount;
-            } else {
-                textLine += transaction.amount;
-                textLine += " || ";
-            }
-            textLine += " || ";
-            totalAmount += transaction.amount;
-            textLine += totalAmount;
-            listOfLines.push(textLine);
+    private createTextLine(transaction: ITransaction): string {
+        var lineText = transaction.date + " || ";
+        if (transaction.amount < 0) {
+            lineText += " || " + (-transaction.amount);
+        } else {
+            lineText += transaction.amount + " || ";
         }
+        this._totalAmount += transaction.amount;
+        lineText += " || " + this._totalAmount;
+        return lineText;
+    }
 
-        for (let textLine of listOfLines) {
-            this._console.print(textLine);
-        }
+    public print(transactions: Array<ITransaction>) {
+        this._console.print(this.HEADER);
+
+        this._totalAmount = 0;
+        transactions.map(
+            transaction => this.createTextLine(transaction))
+            .reverse()
+            .forEach(text => this._console.print(text));
     }
 }
